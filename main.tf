@@ -22,3 +22,9 @@ resource "aws_instance" "blog" {
     Name = "HelloWorld"
   }
 }
+
+module "security-group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.1.0"
+    vpc_id = data.aws_vpc.default.id
+}
