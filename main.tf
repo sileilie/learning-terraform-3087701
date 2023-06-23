@@ -66,8 +66,11 @@ module "blog_alb" {
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
+    
+      
     }
   ]
+
 
   http_tcp_listeners = [
     {
@@ -87,7 +90,7 @@ module "blog_sg" {
   version = "4.13.0"
 
   vpc_id  = module.blog_vpc.vpc_id
-  name    = "blog"
+  name    = "blog_sg"
   ingress_rules = ["https-443-tcp","http-80-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules = ["all-all"]
